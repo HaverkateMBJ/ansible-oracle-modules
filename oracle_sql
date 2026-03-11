@@ -97,7 +97,8 @@ def execute_sql_get(module, cursor, sql):
 
 
 def execute_sql(module, cursor, conn, sql):
-    if 'insert' or 'delete' or 'update' in sql.lower():
+    lower_sql = sql.lower()
+    if 'insert' in lower_sql or 'delete' in lower_sql or 'update' in lower_sql:
         docommit = True
     else:
         docommit = False
